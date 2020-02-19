@@ -1,0 +1,17 @@
+---
+- name: build script
+  copy:
+    src: build_npm_config
+    dest: /usr/local/bin/
+    mode: 0755
+
+- name: build-npm-config cron
+  cron:
+    cron_file: build_npm_config
+    user: root
+    job: "/usr/local/bin/build_npm_config &>> /var/log/build_npm_config.log"
+    minute: "*/10"
+
+- name: pull image
+  docker_image:
+    name: "mergermarket/npm_repository_config"
