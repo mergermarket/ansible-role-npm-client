@@ -11,7 +11,3 @@
     user: root
     job: "/usr/local/bin/build_npm_config &>> /var/log/build_npm_config.log"
     minute: "*/10"
-
-- name: pull image
-  docker_image:
-    name: "mergermarket/npm_repository_config"
