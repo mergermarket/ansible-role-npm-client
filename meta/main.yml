@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: npm-client
   author: Marcio Goda
   description: Creates a npmrc file using Aws secrets manager
   company: Acuris
