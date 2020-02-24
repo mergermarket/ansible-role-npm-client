@@ -20,13 +20,13 @@
     cron_file: build-npm-config
 
 - name: add-region-variable
-  cronvar: 
+  cronvar:
     name: AWS_DEFAULT_REGION
     value: "eu-west-1"
     cron_file: build-npm-config
 
 - name: add-env-varaible
   cronvar:
-      name: JENKINS_ENV
-      value: "%JENKINS_ENV%"
-      cronfile: build-npm-config
+    name: JENKINS_ENV
+    value: "%JENKINS_ENV%"
+    cron_file: build-npm-config
