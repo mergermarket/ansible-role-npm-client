@@ -8,6 +8,9 @@ docker run --rm \
     -e AWS_SECRET_ACCESS_KEY \
     -e AWS_SESSION_TOKEN \
     -e AWS_DEFAULT_REGION \
-    -v /etc:/home \
+    -v ~/:/home \
     -u $(id -u):$(id -g) \
     mergermarket/npm_repository_config python build_npmrc.py platform/$JENKINS_ENV/jenkins_npm_repository_config
+
+mv ~/.npmrc /home/jenkins/.npmrc
+chown jenkins:jenkins /home/jenkins/.npmrc
