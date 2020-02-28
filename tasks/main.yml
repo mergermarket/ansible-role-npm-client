@@ -14,7 +14,7 @@
 - name: build-npm-config cron
   cron:
     name: build-npm-config
-    user: jenkins
+    user: root
     job: "/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log"
     minute: "*/10"
     cron_file: build-npm-config
