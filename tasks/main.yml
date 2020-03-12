@@ -17,6 +17,7 @@
     user: root
     job: "/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log"
     minute: "*/10"
+    special_time: reboot
     cron_file: build-npm-config
 
 - name: add-region-variable
