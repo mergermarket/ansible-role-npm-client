@@ -17,8 +17,15 @@
     user: root
     job: "/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log"
     minute: "*/10"
-    special_time: reboot
     cron_file: build-npm-config
+
+- name: build-npm-config-startup cron
+  cron:
+    name: build-npm-config-startup
+    user: root
+    job: "/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log"
+    special_time: reboot
+    cron_file: build-npm-config-startup
 
 - name: add-region-variable
   cronvar:
@@ -31,3 +38,15 @@
     name: JENKINS_ENV
     value: "%JENKINS_ENV%"
     cron_file: build-npm-config
+
+- name: add-region-variable-startup
+  cronvar:
+    name: AWS_DEFAULT_REGION
+    value: "eu-west-1"
+    cron_file: build-npm-config
+
+- name: add-env-varaible-startup
+  cronvar:
+    name: JENKINS_ENV
+    value: "%JENKINS_ENV%"
+    cron_file: build-npm-config-startub
