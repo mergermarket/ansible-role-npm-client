@@ -11,6 +11,12 @@
     dest: /usr/local/bin/
     mode: 0755
 
+- name: build npm config service
+    systemd: 
+      name: build_npm_config.service
+      enabled: yes
+      state: started
+
 - name: build-npm-config cron
   cron:
     name: build-npm-config
@@ -18,14 +24,6 @@
     job: "/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log"
     minute: "*/10"
     cron_file: build-npm-config
-
-- name: build-npm-config-startup cron
-  cron:
-    name: build-npm-config-startup
-    user: root
-    job: "/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log"
-    special_time: reboot
-    cron_file: build-npm-config-startup
 
 - name: add-region-variable
   cronvar:

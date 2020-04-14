@@ -1,0 +1,14 @@
+[Unit]
+Description=Generate .npmrc file
+After=docker.service
+
+[Service]
+ExecStart=/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log
+Type=oneshot
+RemainAfterExit=true
+User=root
+Group=root
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
