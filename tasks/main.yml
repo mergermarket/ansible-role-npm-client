@@ -11,11 +11,14 @@
     dest: /usr/local/bin/
     mode: 0755
 
-- name: build npm config service
-    systemd: 
-      name: build_npm_config.service
-      enabled: yes
-      state: started
+- name: install-npm-config-service
+  copy:
+    src: build_npm_config.service
+    dest: /etc/systemd/system/build_npm_config.service
+
+- name: build-npm-config-service
+  systemd: 
+    name: build_npm_config.service
 
 - name: build-npm-config cron
   cron:
@@ -36,15 +39,3 @@
     name: JENKINS_ENV
     value: "%JENKINS_ENV%"
     cron_file: build-npm-config
-
-- name: add-region-variable-startup
-  cronvar:
-    name: AWS_DEFAULT_REGION
-    value: "eu-west-1"
-    cron_file: build-npm-config
-
-- name: add-env-varaible-startup
-  cronvar:
-    name: JENKINS_ENV
-    value: "%JENKINS_ENV%"
-    cron_file: build-npm-config-startub
