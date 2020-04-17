@@ -4,7 +4,7 @@ After=docker.service
 
 [Service]
 Environment=AWS_DEFAULT_REGION=eu-west-1
-EnvironmentFile=/var/lib/jenkins/swarm_env
+Environment=JENKINS_ENV=live
 ExecStart=/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log
 Type=oneshot
 RemainAfterExit=true
