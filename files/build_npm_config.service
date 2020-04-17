@@ -4,7 +4,6 @@ After=docker.service
 Requires=docker.service
 
 [Service]
-TimeoutStartSec=0
 Environment=AWS_DEFAULT_REGION=eu-west-1
 Environment=JENKINS_ENV=live
 ExecStart=/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log
@@ -12,7 +11,7 @@ Type=oneshot
 RemainAfterExit=true
 User=root
 Group=root
-Restart=yes
+Restart=no
 
 [Install]
 WantedBy=multi-user.target
