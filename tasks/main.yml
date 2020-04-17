@@ -19,6 +19,7 @@
 - name: build-npm-config-service
   systemd: 
     name: build_npm_config.service
+    enabled: yes
 
 - name: build-npm-config cron
   cron:
