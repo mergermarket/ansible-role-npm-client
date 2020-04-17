@@ -1,7 +1,6 @@
 [Unit]
 Description=Generate .npmrc file
 After=docker.service
-Requires=docker.service
 
 [Service]
 Environment=AWS_DEFAULT_REGION=eu-west-1
