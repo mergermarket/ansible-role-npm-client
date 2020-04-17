@@ -10,9 +10,13 @@ driver:
     flake8
 platforms:
   - name: instance
-    image: centos:7
+    image: fiercely/centos7:systemd
+    privileged: True
+    command: "/usr/sbin/init"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+      - ./molecule/default/config:/var/lib/jenkins/
 provisioner:
   name: ansible
 scenario:
