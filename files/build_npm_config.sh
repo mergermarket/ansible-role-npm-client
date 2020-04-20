@@ -1,7 +1,7 @@
 #!/bin/bash
 docker pull mergermarket/npm_repository_config:latest
 
-export $(cat /var/lib/jenkins/swarm_env | xargs)
+curl http://169.254.169.254/latest/dynamic/instance-identity/document > ~/env.json
 
 docker run --rm \
     -e AWS_ACCESS_KEY_ID \
@@ -10,7 +10,7 @@ docker run --rm \
     -e AWS_DEFAULT_REGION \
     -v ~/:/home \
     -u $(id -u):$(id -g) \
-    mergermarket/npm_repository_config python build_npmrc.py platform/$JENKINS_ENV/jenkins_npm_repository_config
+    mergermarket/npm_repository_config python build_npmrc.py /home/env.json
 
 mv ~/.npmrc /home/jenkins/.npmrc
 chown jenkins:jenkins /home/jenkins/.npmrc
