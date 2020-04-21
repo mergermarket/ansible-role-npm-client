@@ -5,7 +5,7 @@ After=docker.service
 
 [Service]
 TimeoutStartSec=0
-Restart=always
+Restart=no
 Environment=AWS_DEFAULT_REGION=eu-west-1
 ExecStart=-/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log
 Type=oneshot

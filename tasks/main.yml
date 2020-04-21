@@ -34,4 +34,3 @@
     name: AWS_DEFAULT_REGION
     value: "eu-west-1"
     cron_file: build-npm-config
-
