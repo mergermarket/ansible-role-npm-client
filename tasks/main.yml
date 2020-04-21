@@ -35,8 +35,3 @@
     value: "eu-west-1"
     cron_file: build-npm-config
 
-- name: add-env-varaible
-  cronvar:
-    name: JENKINS_ENV
-    value: "%JENKINS_ENV%"
-    cron_file: build-npm-config
