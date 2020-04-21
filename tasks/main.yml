@@ -14,7 +14,7 @@
 - name: install-npm-config-service
   copy:
     src: build_npm_config.service
-    dest: /etc/systemd/system/build_npm_config.service
+    dest: /usr/lib/systemd/system/build-npm-config.service
 
 - name: build-npm-config-service
   systemd: daemon_reload=yes
