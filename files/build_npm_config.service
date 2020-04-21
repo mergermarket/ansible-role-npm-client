@@ -1,6 +1,5 @@
 [Unit]
 Description=Generate .npmrc file
-Requires=docker.service
 After=docker.service
 
 [Service]
