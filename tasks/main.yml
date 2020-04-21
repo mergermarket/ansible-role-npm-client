@@ -17,9 +17,7 @@
     dest: /etc/systemd/system/build_npm_config.service
 
 - name: build-npm-config-service
-  systemd: 
-    name: build_npm_config.service
-    enabled: yes
+  systemd: daemon_reload=yes
 
 - name: build-npm-config cron
   cron:
