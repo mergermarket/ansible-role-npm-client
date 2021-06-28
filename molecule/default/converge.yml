@@ -1,8 +1,7 @@
 ---
 - name: Converge
   hosts: all
-  roles:
-    - role: geerlingguy.repo-epel
-      when: ansible_distribution == "CentOS"
-    - role: mergermarket.docker
-    - role: ../../..
+  tasks:
+    - name: "Include npm client"
+      include_role:
+        name: "ansible-role-npm-client"
