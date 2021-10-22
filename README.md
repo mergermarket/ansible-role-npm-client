@@ -1,3 +1,6 @@
+
+[![Deploy to Ansible Galaxy](https://github.com/mergermarket/ansible-role-npm-client/actions/workflows/deploy.yml/badge.svg)](https://github.com/mergermarket/ansible-role-npm-client/actions/workflows/deploy.yml)
+
 NPM Client
 ==========
 
