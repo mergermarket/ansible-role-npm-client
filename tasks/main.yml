@@ -1,26 +1,26 @@
 ---
 
 - name: Install Required OS Packages
-  package:
+  ansible.builtin.dnf:
     name: cronie
     state: present
 
-- name: build script
-  copy:
+- name: Build script
+  ansible.builtin.copy:
     src: build_npm_config.sh
     dest: /usr/local/bin/
     mode: 0755
 
-- name: build-npm-config cron
-  cron:
+- name: Build-npm-config cron
+  ansible.builtin.cron:
     name: build-npm-config
     user: jenkins
     job: "/usr/local/bin/build_npm_config.sh &>> /var/log/build_npm_config.log"
     minute: "*/10"
     cron_file: build-npm-config
 
-- name: add-region-variable
-  cronvar:
+- name: Add-region-variable
+  community.general.cronvar:
     name: AWS_DEFAULT_REGION
     value: "eu-west-1"
     cron_file: build-npm-config
