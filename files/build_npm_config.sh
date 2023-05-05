@@ -1,7 +1,9 @@
 #!/bin/bash
 docker pull mergermarket/npm_repository_config:latest
 
-curl http://169.254.169.254/latest/dynamic/instance-identity/document > ~/env.json
+TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+
+curl -H 'X-aws-ec2-metadata-token: $TOKEN' -s http://169.254.169.254/latest/dynamic/instance-identity/document > ~/env.json
 
 docker run --rm \
     -e AWS_ACCESS_KEY_ID \
